@@ -29,15 +29,16 @@ nav.navbar.navbar-inverse{
 }
 
 .navbar li a:hover {
-    background : #ff1a1a !important;
+    background : #090909 !important;
 
-    color :#fff !important;
+    color :#FFF !important;
     border-bottom: 3px solid #ff1a1a;
+
 }
 .navbar li.active a {
-    background : #ff1a1a !important;
+    background : #111 !important;
 
-    color :#fff !important;
+    color :#ff1a1a !important;
     border-bottom: 3px solid #ff1a1a;
 
 }
@@ -76,7 +77,9 @@ nav.navbar.navbar-inverse{
     height: 30px;
 }
 .navbar-nav > li > input[type='submit']{
-    margin-top : 9px;
+
+
+    margin : 9px;
     line-height: 3px !important;
     height: 30px;
     background : #ff1a1a;
@@ -93,21 +96,24 @@ nav.navbar.navbar-inverse{
 
 span.ico{
     font-size: x-large;
-    color: #ff0008;
+    color: #fff400;
     line-height: 30px;
-    border: 1px solid #ff0008;
+    border: 1px solid #269c23;
+    background:  #269c23;
     border-radius: 50%;
 }
 
 
 .block{
-    background: #181818;
+    background: #1b1b1b;
     border-raidus : 5px;
     padding : 15px 20px;
     margin-bottom : 20px;
 }
 
 a.btn.btn-primary{
+    margin: 1px;
+    height: 35px;
     background : #ff1a1a !important;
     border : 1px solid #ff1a1a !important;
 }
@@ -124,13 +130,13 @@ input.btn .btn-primary:focus, input.btn.btn-primary:hover{
     border : 1px solid #ff1a1a !important;
 }
 a.list-group-item{
-    background: #181818 ;
-    border-color: #181818;
+    background: #1b1b1b ;
+    border-color: #1b1b1b;
     color : #FFF;
 }
 a.list-group{
-    background: #181818 ;
-    border-color: #181818;
+    background: #1b1b1b ;
+    border-color: #1b1b1b;
     color : #FFF;
 
 }
@@ -144,23 +150,33 @@ a.list-group-item.active{
 
     border-color: #ff1a1a;
 }
+a.list-group-item.active > span.badge{
+    border: 1px solid #269c23;
+    background:  #269c23;
+    color : #FFF;
+}
 a.list-group-item.active:hover{
     border-color: #ff1a1a;
     background : #ff1a1a !important;
 }
 div.panel{
-    background: #181818;
-    border-color: #181818 !important;
+    background: #1b1b1b;
+    border-color: #1b1b1b !important;
 }
 div.panel .panel-default .panel-list{
-    background: #181818 ;
-    border-color: #181818 !important;
+    background: #1b1b1b ;
+    border-color: #1b1b1b !important;
 }
 
 div.panel-heading.panel-heading-dark {
-    background: #111 !important;
-    border-color: #111 !important;
+    background: #131313 !important;
+    border-color: #131313 !important;
     color : #FFF !important;
+}
+.badge{
+    border: 1px solid #269c23;
+    background:  #269c23;
+    color : #FFF;
 }
 
 

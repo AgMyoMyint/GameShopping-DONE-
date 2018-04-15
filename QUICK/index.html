@@ -22,7 +22,7 @@
 
 
 <nav class="navbar navbar-inverse">
-    <div class="container">
+    <div class="container-fluid">
 
         <div class="navbar-header">
             <a class="navbar-brand" href="index.html">  <span class="ico glyphicon glyphicon-flash"></span> GAME-SHOP</a>
@@ -63,62 +63,64 @@
     </div>
 </nav>
 
-<div role="main" class="container">
+<div role="main" class="container-fluid">
     <div class="row">
         <div class="col-md-4">
 
             <div class="block">
                 <form method="post" action="cart/update" role="form">
+                    <div class="row">
+                        <table class="table table-responsive" cellpadding="6" cellspacing="1" style="width:100%;">
+                            <thead >
+                            <tr>
+                                <th style="text-align: right;">QTY</th>
+                                <th>Item Description</th>
+                                <th class="right" style="text-align: right;">Item Price</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr>
+                                <td style="text-align: right;"> 30 </td>
+                                <td> Game 0 </td>
+                                <td class="right" style="text-align: right;"> 100 &dollar;</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;"> 3 </td>
+                                <td> Game 1 </td>
+                                <td class="right" style="text-align: right;"> 20 &dollar;</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;"> 2 </td>
+                                <td> Game 2 </td>
+                                <td class="right" style="text-align: right;"> 100 &dollar;</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;"> 1 </td>
+                                <td>  Game 3  </td>
+                                <td class="right" style="text-align: right;"> 30 &dollar;</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;"> 20 </td>
+                                <td> Game 4 </td>
+                                <td class="right" style="text-align: right;"> 50 &dollar;</td>
+                            </tr>
+
+                            <tr>
+                                <td class="right">Total</td>
+                                <td>  </td>
+                                <td class="right" style="text-align: right;"> &dollar;</td>
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
 
 
-                    <table class="table" cellpadding="6" cellspacing="1" style="width:100%;">
-                        <thead >
-                        <tr>
-                            <th style="text-align: right;">QTY</th>
-                            <th>Item Description</th>
-                            <th class="right" style="text-align: right;">Item Price</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr>
-                            <td style="text-align: right;"> 30 </td>
-                            <td> Game 0 </td>
-                            <td class="right" style="text-align: right;"> 100 &dollar;</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: right;"> 3 </td>
-                            <td> Game 1 </td>
-                            <td class="right" style="text-align: right;"> 20 &dollar;</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: right;"> 2 </td>
-                            <td> Game 2 </td>
-                            <td class="right" style="text-align: right;"> 100 &dollar;</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: right;"> 1 </td>
-                            <td>  Game 3  </td>
-                            <td class="right" style="text-align: right;"> 30 &dollar;</td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: right;"> 20 </td>
-                            <td> Game 4 </td>
-                            <td class="right" style="text-align: right;"> 50 &dollar;</td>
-                        </tr>
-
-                        <tr>
-                            <td class="right">Total</td>
-                            <td>  </td>
-                            <td class="right" style="text-align: right;"> &dollar;</td>
-                        </tr>
-
-                        </tbody>
-
-                    </table>
                     <div class="row text-center">
-                        <div class="col-md-6"> <input type="submit" name="do_login" class="btn btn-primary" value="Update Cart"> </div>
-                        <div class="col-md-6"> <a href="cart.html" class="btn btn-primary">Go to Cart</a></div>
+                        <div class="col-md-6 col-sm-6 col-xs-6"> <input type="submit" name="do_login" class="btn btn-primary" value="Update Cart"> </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6"> <a href="cart.html" class="btn btn-primary">Go to Cart</a></div>
 
                     </div>
                 </form>
