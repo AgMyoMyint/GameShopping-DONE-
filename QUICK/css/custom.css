@@ -1,0 +1,102 @@
+body {
+
+  background : #1e1e1e;
+  font-size:15px;
+}
+
+a{
+  color : #4c5b69;
+}
+
+ul{
+  list-style: none;
+  margin : 0;
+  padding : 0;
+}
+
+hr{
+  margin : 10px 0 15px 0;
+}
+
+h3{
+  margin-bottom: 5px;
+}
+
+
+
+/*Navbar customization */
+.navbar{
+  background : #000000;
+  margin-bottom : 30px;
+  border : 0;
+
+}
+
+.navbar-nav > li{
+  padding:5px;
+}
+.navbar-nav > li > a{
+}
+.navbar-nav > li > input[type='text']{
+  margin-top: 5px;
+
+  height: 30px;
+}
+.navbar-nav > li > input[type='submit']{
+  margin-top: 5px;
+  line-height: 3px !important;
+  height: 30px;
+  background :#E53935 ;
+  border : 1px solid #E53935;
+
+}
+.navbar-nav > li > input[type='submit']:hover,.navbar-nav > li > input[type='submit']:focus  {
+  background : #bb2f2b;
+  border : 1px solid #bb2f2b;
+}
+
+nav.navbar.navbar-inverse{
+  border-radius : 0px;
+}
+
+.navbar-brand{
+
+  font-family: "Century Gothic";
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.navbar-inverse .navbar-nav > li > a ,.navbar-inverse , navbar-brand{
+  color : #FFF !important;
+}
+
+.navbar-inverse a:hover, .navbar li.active a {
+  background : none !important;
+
+}
+
+.navbar-header > a.navbar-brand{
+  padding : 7px;
+  color : #fff ;
+  text-decoration: none;
+}
+
+.navbar-nav > li > a {
+  padding : 10px 10px 0 10px;
+}
+
+
+span.ico{
+  font-size: x-large;
+  color: #FFF;
+}
+
+
+.block{
+  background : #fff;
+  border-raidus : 5px;
+  padding : 15px 20px;
+  margin-bottom : 20px;
+
+
+}
