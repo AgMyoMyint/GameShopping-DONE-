@@ -56,7 +56,7 @@ nav.navbar.navbar-inverse{
 }
 
 .navbar{
-    background : #161616;
+    background : #111;
     margin-bottom : 30px;
     border : 0;
 }
@@ -93,15 +93,27 @@ nav.navbar.navbar-inverse{
 
 span.ico{
     font-size: x-large;
-    color: #FFF;
+    color: #ff0008;
+    line-height: 30px;
+    border: 1px solid #ff0008;
+    border-radius: 50%;
 }
 
 
 .block{
-    background: #161616;
+    background: #181818;
     border-raidus : 5px;
     padding : 15px 20px;
     margin-bottom : 20px;
+}
+
+a.btn.btn-primary{
+    background : #ff1a1a !important;
+    border : 1px solid #ff1a1a !important;
+}
+a.btn .btn-primary:focus, a.btn.btn-primary:hover{
+    background : #ff1a1a !important;
+    border : 1px solid #ff1a1a !important;
 }
 input.btn.btn-primary{
     background : #ff1a1a !important;
@@ -112,13 +124,13 @@ input.btn .btn-primary:focus, input.btn.btn-primary:hover{
     border : 1px solid #ff1a1a !important;
 }
 a.list-group-item{
-    background: #161616 ;
-    border-color: #161616;
+    background: #181818 ;
+    border-color: #181818;
     color : #FFF;
 }
 a.list-group{
-    background: #161616 ;
-    border-color: #161616;
+    background: #181818 ;
+    border-color: #181818;
     color : #FFF;
 
 }
@@ -137,16 +149,81 @@ a.list-group-item.active:hover{
     background : #ff1a1a !important;
 }
 div.panel{
-    background: #161616 ;
-    border-color: #161616 !important;
+    background: #181818;
+    border-color: #181818 !important;
 }
 div.panel .panel-default .panel-list{
-    background: #161616 ;
-    border-color: #161616 !important;
+    background: #181818 ;
+    border-color: #181818 !important;
 }
 
 div.panel-heading.panel-heading-dark {
-    background: #000000 !important;
-    border-color: #000000 !important;
+    background: #111 !important;
+    border-color: #111 !important;
     color : #FFF !important;
+}
+
+
+table.table .table-striped .table-dark {
+
+
+}
+table.table .table-striped .table-dark> tbody> tr{
+
+}
+th{
+
+
+}
+td{
+
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+    background-color: #3c3c3c;
+
+}
+.table-striped > tbody > tr:nth-of-type(2n) {
+    background-color: #1e1e1e;
+
+}
+
+
+.game{
+    padding-top : 10px;
+    padding-bottom : 10px;
+}
+.game-price{
+    position : absolute;
+    bottom: 30%;
+    right : 15px;
+    background: #d68311;
+    color: #fff;
+    padding : 5px 10px 5px 10px;
+    font-size: small;
+}
+.game-title{
+    padding : 5px;
+}
+.game img{
+    width: 100%;
+}
+.game-description{
+
+}
+.game-add{
+
+}
+.game-add button{
+
+      font-size: small;
+  }
+
+div.game-add >button.btn.btn-primary{
+    background : #269c23 !important;
+    border : 1px solid #269c23 !important;
+}
+div.game-add >button.btn .btn-primary:focus, button.btn.btn-primary:hover{
+    background : #269c23 !important;
+    border : 1px solid #269c23 !important;
 }
