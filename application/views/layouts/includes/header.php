@@ -3,19 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link class="ico" rel="icon" href="../../../../favicon.ico">
-    <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
-    <link rel="icon" href="camp.ico" >
-    <title>Talking Camp</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <!-- Bootstrap core CSS -->
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <title>Game Shopping</title>
+
+
+    <link href="<?php echo base_url(); ?>assets/css/custom.css" rel="stylesheet" type="text/css">
+
+    <script src="<?php echo base_url('assets/js/bootstrap.js'); ?>" type="application/javascript"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js" type="application/javascript"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="application/javascript"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+    <!-- Bootstrap core CSS -->
+    <?php echo link_tag('assets/css/custom.css'); ?>
+
     <!-- Custom styles for this template -->
-    <link href="css/custom.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -65,7 +71,8 @@
 
 <div role="main" class="container-fluid">
     <div class="row">
-        <div class="col-md-4">
-         <?php $this->load->view('layouts/includes/sidebar.php'); ?>
+
+        <div class="col-md-3">
+            <?php $this->load->view('layouts/includes/sidebar.php'); ?>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">

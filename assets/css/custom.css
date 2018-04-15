@@ -98,9 +98,10 @@ span.ico{
     font-size: x-large;
     color: #fff400;
     line-height: 30px;
-    border: 1px solid #269c23;
-    background:  #269c23;
+    border: 2px solid #ff1a1a;
     border-radius: 50%;
+    padding: 2px;
+    -webkit-transform: rotate(15deg);
 }
 
 
@@ -197,6 +198,8 @@ td{
 
 
 .game{
+
+    position:relative ;
     padding-top : 10px;
     padding-bottom : 10px;
 }
@@ -218,6 +221,7 @@ td{
 }
 .game img{
     width: 100%;
+    height: 260px;
 }
 .game-description{
 
