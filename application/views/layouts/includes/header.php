@@ -31,7 +31,7 @@
     <div class="container-fluid">
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">  <span class="ico glyphicon glyphicon-flash"></span> GAME-SHOP</a>
+            <a class="navbar-brand" href="<?php echo base_url(); ?>">  <span class="ico glyphicon glyphicon-flash"></span> GAME-SHOP</a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only"> Toggle Navigation </span>
                 <span class="icon-bar">  </span>
@@ -42,13 +42,13 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav" >
                 <li class=" active">
-                    <a class="nav-link " href="index.html">Home </a>
+                    <a class="nav-link " href="<?php echo base_url(); ?>">Home </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="register.html">Create An Account</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>register">Create An Account</a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="Cart.html">Cart</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>cart">Cart</a>
                 </li>
 
             </ul>

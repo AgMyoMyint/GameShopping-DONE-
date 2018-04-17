@@ -106,10 +106,32 @@ span.ico{
 
 
 .block{
-    background: #1b1b1b;
-    border-raidus : 5px;
+    border: 2px solid #131313;
+    background: #131313;
+    border-radius: 5px;
     padding : 15px 20px;
     margin-bottom : 20px;
+}
+
+div.cart-button> a.btn.btn-primary{
+    margin: 1px;
+    height: 35px;
+    background : #ff1a1a !important;
+    border : 1px solid #ff1a1a !important;
+}
+
+div.cart-button> a.btn .btn-primary:focus, div.cart-button> a.btn.btn-primary:hover{
+    background : #ff1a1a !important;
+    border : 1px solid #ff1a1a !important;
+}
+
+div.cart-button> input.btn.btn-primary{
+    background : #ff1a1a !important;
+    border : 1px solid #ff1a1a !important;
+}
+div.cart-button> input.btn .btn-primary:focus, div.cart-button> input.btn.btn-primary:hover{
+    background : #ff1a1a !important;
+    border : 1px solid #ff1a1a !important;
 }
 
 a.btn.btn-primary{
@@ -205,7 +227,7 @@ td{
 }
 .game-price{
     position : absolute;
-    bottom: 30%;
+    bottom: 40%;
     right : 15px;
     background: #d68311;
     color: #fff;
@@ -241,6 +263,14 @@ div.game-add >button.btn.btn-primary{
 div.game-add >button.btn .btn-primary:focus, button.btn.btn-primary:hover{
     background : #269c23 !important;
     border : 1px solid #269c23 !important;
+}
+
+.qty{
+    width: 15%;
+    border-radius: 5px;
+    border-color : transparent;
+    color : black;
+    text-align: center;
 }
 
 .footer{

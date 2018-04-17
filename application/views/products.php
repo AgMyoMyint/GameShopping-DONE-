@@ -9,164 +9,32 @@
         <?php foreach ($products as $product)  : ?>
 
 
-                <div class="col-md-3 game text-center">
+            <div class="col-md-3 game text-center">
+                <form method="post" action="<?php echo base_url(); ?>cart/add/<?php echo $product->id; ?>">
                     <div class="game-price">
                         <?php echo $product->price; ?> &dollar;
                     </div>
-                    <a href="product.html">
+                    <a href="<?php echo base_url(); ?>products/details/<?php echo $product->id; ?>">
                         <img class=""  src="<?php echo base_url(); ?>assets/images/products/<?php echo $product->image; ?>" >
                     </a>
                     <div class="game-title">
                         <?php echo $product->title; ?>
                     </div>
-                    <div class="game-add">
-                        <button class="btn btn-primary" type="submit"> + Add to Cart</button>
+                    <div class="form-group">
+                        QTY : <input class="qty" type="number" name="qty" value="0" >
                     </div>
-                </div>
+                    <input type="hidden" name="item_number" value="<?php echo $product->id; ?>">
+                    <input type="hidden" name="price" value="<?php echo $product->price; ?>">
+                    <input type="hidden" name="title" value="<?php echo $product->title; ?>">
+                    <div class="game-add">
+                        <button class="btn btn-primary" type="submit"> + Add to Cart </button>
+                    </div>
+                </form>
+            </div>
 
 
         <?php endforeach;  ?>
 
 
-  <!--      <div class="row">
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" >
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" >
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" >
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" width="100%">
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" width="100%">
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" width="100%">
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" width="100%">
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" width="100%">
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-            <div class="col-md-4 text-center game">
-                <div class="game-price">
-                    49 &dollar;
-                </div>
-                <a href="product.html">
-                    <img class="" src="images/uncharted4.jpg" width="100%">
-                </a>
-                <div class="game-title">
-                    Uncharted 4
-                </div>
-                <div class="game-add">
-                    <button class="btn btn-primary" type="submit"> + Add to Cart</button>
-                </div>
-            </div>
-        </div>
-
-        -->
     </div>
 </div>
