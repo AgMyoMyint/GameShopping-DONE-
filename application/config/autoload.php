@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','cart');
+$autoload['libraries'] = array('database','cart','Form_validation');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('database','cart');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array('url','html','db','form');
+$autoload['helper'] = array('url','form','db','html');
 
 
 /*

@@ -45,7 +45,7 @@
                     <a class="nav-link " href="<?php echo base_url(); ?>">Home </a>
                 </li>
                 <li class="">
-                    <a class="nav-link" href="<?php echo base_url(); ?>register">Create An Account</a>
+                    <a class="nav-link" href="<?php echo base_url(); ?>users/register">Create An Account</a>
                 </li>
                 <li class="">
                     <a class="nav-link" href="<?php echo base_url(); ?>cart">Cart</a>

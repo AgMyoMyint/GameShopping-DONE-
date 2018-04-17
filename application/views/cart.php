@@ -6,60 +6,49 @@
     <div class="panel-body">
         <div class="row" style="padding : 10px;">
 
-            <table class="table table-striped table-dark table-responsive" cellpadding="6" cellspacing="1" border="0" >
+            <table class="table table-responsive" cellpadding="6" cellspacing="1" border="0" >
                 <thead >
                 <tr>
-                    <th class="col" style="text-align: center;">Product</th>
-                    <th class="col" style="text-align: center;">Qty</th>
-                    <th class="col" style="text-align: center;">Price</th>
+                    <th class="col" style="">Product</th>
+                    <th class="col" style="">Qty</th>
+                    <th class="col" style="">Price</th>
                 </tr>
                 </thead>
                 <tbody>
-
+                <?php $i=1; ?>
+                <?php if ($this->cart->contents()) : ?>
+                <?php foreach($this->cart->contents() as $items) : ?>
                 <tr>
+                    <td class=""  style="width: 70%;">  <?php echo $items['name']; ?> </td>
+                    <td class="text-center" style="width: 15%;"> <input class="qty text-center" style="width: 100%;" type="text" name="<?php echo $i.'[qty]'; ?>" value="<?php echo $items['qty']; ?>" > </td>
 
-                    <td> Game 0 </td>
-                    <td style="text-align: right;"> 30 </td>
-                    <td class="right" style="text-align: right;"> 100 &dollar;</td>
-                </tr>
-                <tr>
-
-                    <td> Game 1 </td>
-                    <td style="text-align: right;"> 3 </td>
-                    <td class="right" style="text-align: right;"> 20 &dollar;</td>
-                </tr>
-                <tr >
-
-                    <td> Game 2 </td>
-                    <td style="text-align: right;"> 2 </td>
-                    <td class="right" style="text-align: right;"> 100 &dollar;</td>
-                </tr>
-                <tr>
-
-                    <td>  Game 3  </td>
-                    <td style="text-align: right;"> 1 </td>
-                    <td class="right" style="text-align: right;"> 30 &dollar;</td>
-                </tr>
-                <tr>
-
-                    <td> Game 4 </td>
-                    <td style="text-align: right;"> 20 </td>
-                    <td class="right" style="text-align: right;"> 50 &dollar;</td>
+                    <td class="right" style="text-align: right;width: 15%;">  <?php echo $this->cart->format_number($items['price']*$items['qty']); ?> &dollar;</td>
                 </tr>
 
 
-                <tr>
-                    <td  colspan="3" class="cart-subtotal">SubTotal : 230 &dollar;</td>
+                <?php endforeach; ?>
+                    <tr>
 
-                </tr>
-                <tr>
-                    <td  colspan="3" class="cart-shipping">Shipping : 230 &dollar;</td>
+                        <td  colspan="2" class="cart-shipping" style="text-align: right;">Tax </td>
+                        <td class="right" style="text-align: right;width: 15%;">   &dollar;</td>
 
-                </tr>
-                <tr>
-                    <td colspan="3" class="cart-total">Total : 230 &dollar;</td>
+                    </tr>
 
-                </tr>
+                    <tr>
+                        <td  colspan="2" class="cart-shipping" style="text-align: right;">Shipping </td>
+                        <td class="right" style="text-align: right;width: 15%;">   &dollar;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="cart-total" style="text-align: right;">Total</td>
+                        <td class="right" style="text-align: right;width: 15%;">   &dollar;</td>
+                    </tr>
+                <?php else : ?>
+                    <tr >
+                        <td colspan="3"> <em>There is no item in the cart</em></td>
+                    </tr>
+
+                <?php endif; ?>
+
                 </tbody>
 
             </table>

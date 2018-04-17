@@ -12,6 +12,7 @@
                 </thead>
                 <tbody>
                 <?php $i=1; ?>
+                <?php if ($this->cart->contents()) : ?>
                 <?php foreach($this->cart->contents() as $items) : ?>
                     <input type="hidden"  name="<?php echo $i.'[rowid]'; ?>" value="<?php echo $items['rowid']; ?>">
                     <tr>
@@ -23,6 +24,12 @@
                     <?php $i++; ?>
                 <?php endforeach; ?>
 
+                <?php else : ?>
+                    <tr >
+                        <td colspan="3"> <em>There is no item in the cart</em></td>
+                    </tr>
+
+                <?php endif; ?>
 
                 <tr>
                     <td class="right"></td>
