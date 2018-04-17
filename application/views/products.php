@@ -1,3 +1,4 @@
+
 <div class="panel panel-default panel-list">
 
     <div class="panel-heading panel-heading-dark">
@@ -5,7 +6,18 @@
     </div>
 
     <div class="panel-body">
+        <?php    if($this->session->flashdata('registered')) :  ?>
+            <div class="alert alert-success">
+                <?php    echo $this->session->flashdata('registered');  ?>
+            </div>
 
+        <?php endif; ?>
+        <?php    if($this->session->flashdata('loginfailed')) :  ?>
+            <div class="alert alert-danger">
+                <?php    echo $this->session->flashdata('loginfailed');  ?>
+            </div>
+
+        <?php endif; ?>
         <?php foreach ($products as $product)  : ?>
 
 

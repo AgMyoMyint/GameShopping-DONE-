@@ -76,6 +76,20 @@ nav.navbar.navbar-inverse{
     margin-top  : 9px;
     height: 30px;
 }
+.navbar-nav > li > a.btn.btn-primary.logout{
+
+
+    margin : 8px;
+    line-height: 0px !important;
+    height: 30px;
+    background : #ff1a1a;
+    border : 1px solid #ff1a1a;
+}
+.navbar-nav > li > a.btn.btn-primary.logout :hover,
+.navbar-nav > li > a.btn.btn-primary.logout :focus  {
+    background : #ff1a1a;
+    border : 1px solid #ff1a1a;
+}
 .navbar-nav > li > input[type='submit']{
 
 
@@ -89,7 +103,6 @@ nav.navbar.navbar-inverse{
     background : #ff1a1a;
     border : 1px solid #ff1a1a;
 }
-
 
 
 
@@ -127,6 +140,7 @@ div.cart-button> a.btn .btn-primary:focus, div.cart-button> a.btn.btn-primary:ho
 
 div.cart-button> input.btn.btn-primary{
     background : #ff1a1a !important;
+    color: white;
     border : 1px solid #ff1a1a !important;
 }
 div.cart-button> input.btn .btn-primary:focus, div.cart-button> input.btn.btn-primary:hover{
@@ -146,10 +160,12 @@ a.btn .btn-primary:focus, a.btn.btn-primary:hover{
 }
 input.btn.btn-primary{
     background : #ff1a1a !important;
+    color: #fff;
     border : 1px solid #ff1a1a !important;
 }
 input.btn .btn-primary:focus, input.btn.btn-primary:hover{
     background : #ff1a1a !important;
+    color: #fff;
     border : 1px solid #ff1a1a !important;
 }
 a.list-group-item{
@@ -164,23 +180,30 @@ a.list-group{
 
 }
 a.list-group-item:hover{
-    color : #FFF;
-    border-color: #ff1a1a;
-    background : #ff1a1a !important;
+    background: #1b1b1b;
+
+    border-color : transparent;
+    color :#ff1a1a ;
+
 }
 a.list-group-item.active{
-    background : #ff1a1a !important;
-    border-color: #ff1a1a;
+    background: #1b1b1b;
+    border-color : transparent;
+    color :#ff1a1a ;
+
+}
+a.list-group-item.active:hover{
+    background: #1b1b1b;
+    border-color : transparent;
+    color :#ff1a1a ;
+
 }
 a.list-group-item.active > span.badge{
     border: 1px solid #269c23;
     background:  #269c23;
     color : #FFF;
 }
-a.list-group-item.active:hover{
-    border-color: #ff1a1a;
-    background : #ff1a1a !important;
-}
+
 div.panel{
     background: #1b1b1b;
     border-color: #1b1b1b !important;
@@ -252,11 +275,13 @@ td{
 
 }
 .game-add button{
-        margin:4px;
-      font-size: small;
-  }
+    margin:2px;
+    font-size: smaller;
+    padding : 5px;
+}
 
 div.game-add >button.btn.btn-primary{
+
     background : #269c23 !important;
     border : 1px solid #269c23 !important;
 }
@@ -266,10 +291,16 @@ div.game-add >button.btn .btn-primary:focus, button.btn.btn-primary:hover{
 }
 
 .qty{
+    margin : 4px;
     width: 15%;
-    border-radius: 5px;
-    border-color : transparent;
-    color : black;
+    background: transparent;
+    border-bottom : 1px solid #3bbb38 !important;
+    border-left: none;
+    border-right:none;
+    border-top : none;
+    outline :none;
+    box-shadow: none;
+    line-height: 20px;
     text-align: center;
 }
 
@@ -280,3 +311,39 @@ div.game-add >button.btn .btn-primary:focus, button.btn.btn-primary:hover{
     text-align :center;
     padding-top : 20px;
 }
+
+.alert.alert-danger{
+    background: #1b1b1b;
+    border-color : #ff0005;
+    color : #ff0005;
+    font-style: italic;
+}
+.alert.alert-success{
+    background: #1b1b1b;
+    border-color : #06f900;
+    color : #06f900;
+    font-style: italic;
+}
+
+input[type='text'],input[type='email'],input[type='password']{
+    border-bottom : #667a90 solid 1px;
+    color : white;
+    border-top : none;
+    border-left: none;
+    border-right:none;
+    background : transparent;
+    outline: none;
+
+    box-shadow: none;
+}
+input[type='text']:focus,input[type='email']:focus,input[type='password']:focus {
+    outline: none;
+
+    box-shadow: none;
+}
+
+.user-name{
+    line-height: 30px;
+    font-family: Calibri;
+}
+

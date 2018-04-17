@@ -35,4 +35,12 @@ class Product_model extends CI_Model{
 
         return $query->result();
     }
+
+    public function get_products_by_id($id){
+        $this->db->select('*');
+        $this->db->from('products');
+        $this->db->where('category_id',$id);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

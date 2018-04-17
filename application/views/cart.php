@@ -17,16 +17,16 @@
                 <tbody>
                 <?php $i=1; ?>
                 <?php if ($this->cart->contents()) : ?>
-                <?php foreach($this->cart->contents() as $items) : ?>
-                <tr>
-                    <td class=""  style="width: 70%;">  <?php echo $items['name']; ?> </td>
-                    <td class="text-center" style="width: 15%;"> <input class="qty text-center" style="width: 100%;" type="text" name="<?php echo $i.'[qty]'; ?>" value="<?php echo $items['qty']; ?>" > </td>
+                    <?php foreach($this->cart->contents() as $items) : ?>
+                        <tr>
+                            <td class=""  style="width: 70%;">  <?php echo $items['name']; ?> </td>
+                            <td class="text-center" style="width: 15%;"> <input class="qty text-center" style="width: 100%;" type="text" name="<?php echo $i.'[qty]'; ?>" value="<?php echo $items['qty']; ?>" > </td>
 
-                    <td class="right" style="text-align: right;width: 15%;">  <?php echo $this->cart->format_number($items['price']*$items['qty']); ?> &dollar;</td>
-                </tr>
+                            <td class="right" style="text-align: right;width: 15%;">  <?php echo $this->cart->format_number($items['price']*$items['qty']); ?> &dollar;</td>
+                        </tr>
 
 
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                     <tr>
 
                         <td  colspan="2" class="cart-shipping" style="text-align: right;">Tax </td>
@@ -57,38 +57,45 @@
 
         </div>
         <div class="row" style="padding : 10px;">
-            <div class="form-group">
+            <?php if($this->session->userdata('logged_in')) : ?>
+                <div class="form-group">
+                    <h3>Shipping Info</h3>
+                </div>
+                <div class="form-group">
+                    <form method="post" action="cart/update" role="form">
+                        <div class="form-group">
+                            <label> Address </label>
+                            <input name="address" type="text" class="form-control" placeholder="Enter  Address">
+                        </div>
+                        <div class="form-group">
+                            <label> Address 2</label>
+                            <input name="address2" type="text" class="form-control" placeholder="Enter  Another Address">
+                        </div>
+                        <div class="form-group">
+                            <label> City </label>
+                            <input name="city" type="text" class="form-control" placeholder="Enter  City">
+                        </div>
+                        <div class="form-group">
+                            <label> State </label>
+                            <input name="state" type="text" class="form-control" placeholder="Enter State">
+                        </div>
+                        <div class="form-group">
+                            <label> Zip Code </label>
+                            <input name="zipcode" type="text" class="form-control" placeholder="Enter Zip Code">
+                        </div>
 
-                <h3>Shipping Info</h3>
-            </div>
-            <div class="form-group">
-                <form method="post" action="cart/update" role="form">
-                    <div class="form-group">
-                        <label> Address </label>
-                        <input name="address" type="text" class="form-control" placeholder="Enter  Address">
-                    </div>
-                    <div class="form-group">
-                        <label> Address 2</label>
-                        <input name="address2" type="text" class="form-control" placeholder="Enter  Another Address">
-                    </div>
-                    <div class="form-group">
-                        <label> City </label>
-                        <input name="city" type="text" class="form-control" placeholder="Enter  City">
-                    </div>
-                    <div class="form-group">
-                        <label> State </label>
-                        <input name="state" type="text" class="form-control" placeholder="Enter State">
-                    </div>
-                    <div class="form-group">
-                        <label> Zip Code </label>
-                        <input name="zipcode" type="text" class="form-control" placeholder="Enter Zip Code">
-                    </div>
+                        <div class="form-group">
+                            <input name="Checkout" type="submit" value="Check Out" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            <?php else : ?>
+                <div class="form-group">
+                    <p> <em>You need to create an account or log in to order.</em></p>
+                    <p> <em>To create an account ,  </em> <a class="btn btn-primary" href="<?php echo base_url(); ?>users/register">Create and Account</a></p>
 
-                    <div class="form-group">
-                        <input name="Checkout" type="submit" value="Check Out" class="btn btn-primary">
-                    </div>
-                </form>
-            </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 

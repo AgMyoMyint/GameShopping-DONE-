@@ -19,4 +19,11 @@ class products extends  CI_Controller {
         $this->load->view('layouts/main',$data);
     }
 
+    public function category($id){
+        $data['products'] = $this->Product_model->get_products_by_id($id) ;
+        $data['main_content'] = "products";
+        //load view
+        $this->load->view('layouts/main',$data);
+    }
+
 }

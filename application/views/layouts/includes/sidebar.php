@@ -16,9 +16,13 @@
                 <?php foreach($this->cart->contents() as $items) : ?>
                     <input type="hidden"  name="<?php echo $i.'[rowid]'; ?>" value="<?php echo $items['rowid']; ?>">
                     <tr>
-                        <td class="text-center" style="width: 20%;"> <input class="qty text-center" style="width: 100%;" type="text" name="<?php echo $i.'[qty]'; ?>" value="<?php echo $items['qty']; ?>" > </td>
+                        <td class="" style="width: 20%;">
+                            <input class="qty text-center" style="width: 100%;" type="text" name="<?php echo $i.'[qty]'; ?>" value="<?php echo $items['qty']; ?>" >
+                        </td>
                         <td class=""  style="width: 50%;">  <?php echo $items['name']; ?> </td>
-                        <td class="right" style="text-align: right;width: 30%;">  <?php echo $this->cart->format_number($items['price']*$items['qty']); ?> &dollar;</td>
+                        <td class="right" style="text-align: right;width: 30%;">
+                            <?php echo $this->cart->format_number($items['price']*$items['qty']); ?> &dollar;
+                        </td>
                     </tr>
 
                     <?php $i++; ?>
