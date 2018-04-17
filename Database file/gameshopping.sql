@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2018 at 07:38 AM
+-- Generation Time: Apr 17, 2018 at 10:52 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -64,6 +64,14 @@ CREATE TABLE `orders` (
   `zipcode` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `product_id`, `user_id`, `transaction_id`, `qty`, `price`, `address`, `address2`, `city`, `state`, `zipcode`) VALUES
+(1, 1, 1, '0', 1, '55.99', 'Mandalay', 'Mandalay', 'Mandalay', 'Myanmar', '0707'),
+(2, 1, 7, '0', 1, '55.99', 'mandlay, mandlay, mandlay', 'mandlay', 'mandlay', 'mandlay', '12321');
+
 -- --------------------------------------------------------
 
 --
@@ -111,7 +119,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `username`, `password`, `join_date`) VALUES
-(1, 'Brad', 'Traverary', 'amm@gmail.com', 'brad', 'password', '2018-04-15 05:20:29');
+(1, 'Brad', 'Traverary', 'amm@gmail.com', 'brad', 'password', '2018-04-15 05:20:29'),
+(7, 'Aung', 'Myint', 'amm@gmail.com', 'AungMyoMyint19', '5f4dcc3b5aa765d61d8327deb882cf99', '2018-04-17 05:54:49');
 
 --
 -- Indexes for dumped tables
@@ -155,7 +164,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -167,7 +176,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
