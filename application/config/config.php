@@ -23,6 +23,21 @@
 |
 */
 $config['base_url'] = 'http://localhost:8080/GameShoppingGit/GameShopping/';
+/*
+ |--------------------------------------------------------------------------
+| Custom Config
+|--------------------------------------------------------------------------
+|
+*/
+$config['shipping'] = 4.99;
+$config['tax'] = 2.99;
+$config['paypal_mode']				= 'live';
+$config['paypal_api_username'] 		= 'youremail@example.com';
+$config['paypal_api_password']		= 'GHYTVREFDSAD';
+$config['paypal_api_signature']		= 'FiGHkl54Frt67uC0DcfRTuOYcGH';
+$config['paypal_currency_code']		= 'USD';
+$config['paypal_return_url']		= 'http://localhost:8080/GameShoppingGit/GameShopping/';
+$config['paypal_cancel_url']		= 'http://localhost:8080/GameShoppingGit/GameShopping/';
 
 /*
 |--------------------------------------------------------------------------

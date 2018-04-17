@@ -1,8 +1,8 @@
 <?php
 class cart extends CI_Controller {
     public $paypal_data = "";
-    public $tax;
-    public $shipping;
+    public $tax = 2;
+    public $shipping = 5;
     public $total=0;
     public $grand_total;
 
@@ -21,7 +21,7 @@ class cart extends CI_Controller {
 
         );
 
-       // print_r($data);die();
+        // print_r($data);die();
         $this->cart->insert($data);
         redirect('products');
     }
@@ -31,5 +31,162 @@ class cart extends CI_Controller {
 
         $this->cart->update($data);
         redirect('products','refresh');
+    }
+
+    public function process(){
+        if($_POST){
+            foreach($this->input->post('item_name') as $key=>$value){
+                //Get tax & shipping from config
+                $this->tax = $this->config->item('tax');
+                $this->shipping = $this->config->item('shipping');
+
+
+                $item_id = $this->input->post('item_code')[$key];
+                $product = $this->Product_model->get_products_details($item_id);
+
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_NAME'.$key.'='.urlencode($product->title);
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_NUMBER'.$key.'='.urlencode($product->id);
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_AMT'.$key.'='.urlencode($product->price);
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_QTY'.$key.'='.urlencode($this->input->post('item_qty')[$key]);
+
+                $subtotal = ($product->price * $this->input->post('item_qty')[$key]);
+                $this->total = $this->total + $subtotal;
+
+                $paypal_product['items'][]  = array(
+                    'item_name' => $product->title,
+                    'item_price' => $product->price,
+                    'item_code' => $item_id,
+                    'item_qty' => $this->input->post('item_qty')[$key],
+                );
+
+                $order_data =  array(
+                    'product_id' => $item_id,
+                    'user_id' =>  $this->session->userdata('user_id'),
+                    'transaction_id' => 0,
+                    'qty' => $this->input->post('item_qty')[$key],
+                    'price' => $subtotal,
+                    'address' => $this->input->post('address'),
+                    'address2' => $this->input->post('address2'),
+                    'city' => $this->input->post('city'),
+                    'state' => $this->input->post('state'),
+                    'zipcode' => $this->input->post('zipcode'),
+
+                );
+
+                $this->Product_model->add_order($order_data);
+
+
+            }
+
+            $this->grand_total = $this->total + $this->tax + $this->shipping;
+
+            $paypal_product['assets'] = array (
+                "tax_total" => $this->tax,
+                "shipping_cost"=>$this->shipping,
+                "grand_total" => $this->total
+            );
+
+            $_SESSION['paypal_product'] = $paypal_product;
+
+
+            echo "<h2 class='text-center' style='color : green; '> SUCCESS. ANd this project end here and the rest is i don't know. 
+<a href='".base_url()."'>go home </a></h2> <br> ";
+            /*
+             * Code i realy really really really don't understand  here
+             *
+             *
+             *
+             *
+             */
+            //Send Paypal Params
+            $padata = 	'&METHOD=SetExpressCheckout'.
+                '&RETURNURL='.urlencode($this->config->item('paypal_return_url')).
+                '&CANCELURL='.urlencode($this->config->item('paypal_cancel_url')).
+                '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
+                $this->paypal_data.
+                '&NOSHIPPING=0'.
+                '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($this->total).
+                '&PAYMENTREQUEST_0_TAXAMT='.urlencode($this->tax).
+                '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($this->shipping).
+                '&PAYMENTREQUEST_0_AMT='.urlencode($this->grand_total).
+                '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($this->config->item('paypal_currency_code')).
+                '&LOCALECODE=GB'. //PayPal pages to match the language on your website.
+                '&LOGOIMG=http://www.techguystaging.com/demofiles/logo.png'. //Custom logo
+                '&CARTBORDERCOLOR=FFFFFF'.
+                '&ALLOWNOTE=1';
+
+            //Execute "SetExpressCheckOut"
+            $httpParsedResponseAr = $this->paypal->PPHttpPost('SetExpressCheckout', $padata, $this->config->item('paypal_api_username'), $this->config->item('paypal_api_password'), $this->config->item('paypal_api_signature'), $this->config->item('paypal_mode'));
+
+            //Respond according to message we receive from Paypal
+            if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])){
+                //Redirect user to PayPal store with Token received.
+                $paypal_url ='https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token='.$httpParsedResponseAr["TOKEN"].'';
+                header('Location: '.$paypal_url);
+            } else{
+                //Show error message
+                print_r($httpParsedResponseAr);
+                die(urldecode($httpParsedResponseAr["L_LONGMESSAGE0"]));
+            }
+        }
+
+        //Paypal redirects back to this page using ReturnURL, We should receive TOKEN and Payer ID
+        if(!empty($this->input->get('token')) && !empty($this->input->get('PayerID'))){
+            //we will be using these two variables to execute the "DoExpressCheckoutPayment"
+            //Note: we haven't received any payment yet.
+
+            $token = $this->input->get('token');
+            $payer_id = $this->input->get('PayerID');
+
+            //Get Session info
+            $paypal_product = $_SESSION["paypal_products"];
+            $this->paypal_data = '';
+            $total_price = 0;
+
+            //Loop Through Session Array
+            foreach($paypal_product['items'] as $key => $item){
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_QTY'.$key.'='. urlencode($item['itm_qty']);
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_AMT'.$key.'='.urlencode($item['itm_price']);
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_NAME'.$key.'='.urlencode($item['itm_name']);
+                $this->paypal_data .= '&L_PAYMENTREQUEST_0_NUMBER'.$key.'='.urlencode($item['itm_code']);
+
+                //Get Subtotal
+                $subtotal = ($item['itm_price']*$item['itm_qty']);
+
+                //Get Total
+                $total_price = ($total_price + $subtotal);
+            }
+
+            $padata = 	'&TOKEN='.urlencode($token).
+                '&PAYERID='.urlencode($payer_id).
+                '&PAYMENTREQUEST_0_PAYMENTACTION='.urlencode("SALE").
+                $this->paypal_data.
+                '&PAYMENTREQUEST_0_ITEMAMT='.urlencode($total_price).
+                '&PAYMENTREQUEST_0_TAXAMT='.urlencode($paypal_product['assets']['tax_total']).
+                '&PAYMENTREQUEST_0_SHIPPINGAMT='.urlencode($paypal_product['assets']['shipping_cost']).
+                '&PAYMENTREQUEST_0_AMT='.urlencode($paypal_product['assets']['grand_total']).
+                '&PAYMENTREQUEST_0_CURRENCYCODE='.urlencode($PayPalCurrencyCode);
+
+            //Execute "DoExpressCheckoutPayment"
+            $httpParsedResponseAr = $this->paypal->PPHttpPost('DoExpressCheckoutPayment', $padata, $this->config->item('paypal_api_username'), $this->config->item('paypal_api_password'), $this->config->item('paypal_api_signature'), $this->config->item('paypal_mode'));
+
+            //Check if everything went ok..
+            if("SUCCESS" == strtoupper($httpParsedResponseAr["ACK"]) || "SUCCESSWITHWARNING" == strtoupper($httpParsedResponseAr["ACK"])){
+                $data['trans_id'] = urldecode($httpParsedResponseAr["PAYMENTINFO_0_TRANSACTIONID"]);
+
+                //Load View
+                $data['main_content'] = 'thankyou';
+                $this->load->view('layouts/main', $data);
+
+                $padata = 	'&TOKEN='.urlencode($token);
+                $httpParsedResponseAr = $this->paypal->PPHttpPost('GetExpressCheckoutDetails', $padata, $this->config->item('paypal_api_username'), $this->config->item('paypal_api_password'), $this->config->item('paypal_api_signature'), $this->config->item('paypal_mode'));
+            } else {
+                die($httpParsedResponseAr["L_LONGMESSAGE0"]);
+                echo '<pre>';
+                print_r($httpParsedResponseAr);
+                echo '</pre>';
+            }
+        }
+
     }
 }
